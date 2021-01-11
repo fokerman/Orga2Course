@@ -1,0 +1,678 @@
+% === A02 - Hola mundo y GDB ===
+% David Alejandro Gonzalez Marquez
+% dmarquez@dc.uba.ar / fokerman@gmail.com
+% https://github.com/fokerman/Orga2Course
+
+\documentclass[aspectratio=169]{beamer}
+% \documentclass[handout]{beamer}
+
+% % % Packages
+\usepackage[sfdefault]{AlegreyaSans}
+\usepackage{inconsolata}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[absolute,overlay]{textpos}
+  \setlength{\TPHorizModule}{1mm}
+  \setlength{\TPVertModule}{1mm}
+\usepackage{framed}
+\usepackage{mfirstuc} % para poner en mayusculas la primer letra
+\usepackage{xspace} % para crear espacios en comandos 
+\usepackage{pbox}
+\usepackage{tikz}
+\usepackage{mathabx}
+
+% % % Beamer config
+\usetheme{Pittsburgh}
+\usecolortheme[rgb={1,0.48,0.0}]{structure}
+\setbeamercolor{block title}{fg=white,bg=verdeuca}
+\xdefinecolor{verdeuca}{rgb}{0.0,0.48,0.54}
+\xdefinecolor{naranjauca}{rgb}{1,0.48,0.0}
+\setbeamercolor{palette quaternary}{fg=white,bg=verdeuca}
+\setbeamertemplate{title page}[default][colsep=-4bp, rounded=true] % remove title shadow
+\setbeamertemplate{frametitle}[default][colsep=-2bp, shadow=false] % remove frame title shadow
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\beamertemplatenavigationsymbolsempty
+
+% % % Colors
+\definecolor{AzulClaro}{rgb}{.31,.506,.741}
+\definecolor{Gris}{gray}{0.8}
+\definecolor{Celeste}{rgb}{.255,.41,.884}
+\definecolor{Rojo}{rgb}{1, 0, 0}
+
+% % % Rename
+\newcommand{\tab}[0]{\hspace{15pt}}
+
+% % % Blocks
+\setbeamercolor{block body}{fg=black, bg=black!10}
+\setbeamercolor{block title}{fg=black, bg=black!20}
+\setbeamercolor{coloredboxstuffNaranja}{fg=naranjauca,bg=black!10} %% PARA LOS BOX
+\setbeamercolor{coloredboxstuffVerde}{fg=verdeuca,bg=black!10} %% PARA LOS BOX
+
+% % % Start
+
+\title{\Huge Hola Mundo en ASM}
+\author{David Alejandro González Márquez}
+\institute{Departamento de Computación\\
+Facultad de Ciencias Exactas y Naturales\\
+Universidad de Buenos Aires}
+\date{}
+
+\begin{document}
+
+\begin{frame}[plain]
+    \titlepage 
+\end{frame}
+
+\begin{frame}[t]{Hola Mundo ...}
+    \begin{block}{Ejercicio}
+    Escriba un programa en lenguaje ensamblador que imprima por pantalla:\\
+    \begin{center}
+    \Large
+    \texttt{Hola Mundo}
+    \end{center}
+    \vspace{.2cm}
+    \end{block}
+    \vspace{0.7cm}
+    \pause
+    \begin{center}
+    \Huge ¿Cómo?
+    \end{center}
+\end{frame}
+
+\begin{frame}{Secciones, etiquetas y símbolos}
+    Un programa en general se separa en secciones\\
+    \pause
+    \begin{itemize}
+    \item[-] \normalsize \texttt{.data}: Donde declarar variables globales inicializadas. \small (\texttt{DB}, \texttt{DW}, \texttt{DD} y \texttt{DQ}).
+    \pause
+    \item[-] \normalsize \texttt{.rodata}: Donde declarar constantes globales inicializadas. \small (\texttt{DB}, \texttt{DW}, \texttt{DD} y \texttt{DQ}).
+    \pause
+    \item[-] \normalsize \texttt{.bss}: Donde declarar variables globales no inicializadas. \small (\texttt{RESB}, \texttt{RESW}, \texttt{RESD} y \texttt{RESQ}).
+    \pause
+    \item[-] \normalsize \texttt{.text}: Es donde se escribe el código.
+    \end{itemize}
+    \bigskip
+    \pause
+    Etiquetas y símbolos
+    \pause
+    \begin{itemize}
+        \item[-] \texttt{global}: Modificador que define un símbolo que va a ser visto externamente.
+        \pause
+        \item[-] \texttt{\_start}: Símbolo utilizando como punto de entrada de un programa.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Pseudoinstrucciones}
+    Comandos e instrucciones para el ensamblador
+    \vspace{.4cm}
+    \begin{itemize}
+    \setlength\itemsep{1em}
+    \pause
+    \item[-] \texttt{DB}, \texttt{DW}, \texttt{DD}, \texttt{DQ}, \texttt{RESB}, \texttt{RESW}, \texttt{RESD} y \texttt{RESQ}.
+    \pause
+    \item[-] expresión \verb|$|, se evalúa en la posición en memoria al principio de la línea que contiene la expresión.
+    \pause
+    \item[-] comando \verb|EQU|, para definir constantes que después no quedan en el archivo objeto.
+    \pause
+    \item[-] comando \verb|INCBIN|, incluye un binario en un archivo assembler.
+    \pause
+    \item[-] prefijo \verb|TIMES|, repite una cantidad de veces la instrucción que le sigue.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Llamadas al sistema operativo (syscalls)}
+    \small
+    Utilizando la famosa \texttt{int 0x80} (en Linux) solicitamos al Sistema Operativo que haga algo por nosotros.\\
+    \vspace{0.2cm}
+    \pause
+    Su interfaz es:
+    \begin{enumerate}
+    \item[1-] El número de función que queremos en rax
+    \item[2-] Los parámetros en rbx, rcx, rdx, rsi, rdi y rbp; en ese orden
+    \item[3-] Llamamos a la interrupción del sistema operativo (int 0x80)
+    \item[4-] En general, la respuesta está en rax
+    \end{enumerate}
+    \pause
+    \begin{itemize}
+    \item[-] \textcolor{verdeuca}{Mostrar por pantalla} (\textbf{sys\_write}):\\
+    \begin{tabular}{l}
+    Función \textbf{4}\\
+    Parámetro 1: \textbf{¿donde?} (1 = stdout)\\
+    Parámetro 2: \textbf{Dirección de memoria del mensaje}\\
+    Parámetro 3: \textbf{Longitud del mensaje} (en bytes)\\
+    \end{tabular}
+    \pause
+    \item[-] \textcolor{verdeuca}{Terminar programa} (\textbf{exit}):\\
+    \begin{tabular}{l}
+    Función \textbf{1}\\
+    Parámetro 1: \textbf{código de retorno} (0 = sin error)\\
+    \end{tabular}
+    \end{itemize}
+\end{frame}
+
+\newcommand{\A}[0]{\begin{tikzpicture} \draw[white] (0,0) rectangle (.4,.4); \draw[white] (0,0) rectangle (.3,.3);\end{tikzpicture}}
+\newcommand{\T}[0]{\begin{tikzpicture} \draw[white] (0,0) rectangle (.4,.4); \draw[red,fill=red] (0,0) rectangle (.3,.3);\end{tikzpicture}}
+\newcommand{\R}[0]{\begin{tikzpicture} \draw[white] (0,0) rectangle (.4,.4); \draw[verdeuca,fill=verdeuca] (0,0) rectangle (.3,.3);\end{tikzpicture}}
+\newcommand{\B}[0]{\begin{tikzpicture} \draw[white] (0,0) rectangle (.4,.4); \draw[naranjauca,fill=naranjauca] (0,0) rectangle (.3,.3);\end{tikzpicture}}
+
+\begin{frame}[fragile]{Hola Mundo... solución}
+    \verb|     section .data                  |\\ 
+    \verb|       msg: DB 'Hola Mundo', 10     | \A \\
+    \verb|       largo EQU $ - msg            |\\
+    \verb|                                    |\\
+    \verb|       global _start                |\\
+    \verb|     section .text                  |\\
+    \verb|       _start:                      |\\
+    \verb|         mov rax, 4     ; funcion 4 | \A \\
+    \verb|         mov rbx, 1     ; stdout    | \A \\
+    \verb|         mov rcx, msg   ; mensaje   | \A \\
+    \verb|         mov rdx, largo ; longitud  | \A \\
+    \verb|         int 0x80                   | \A \\
+    \verb|         mov rax, 1     ; funcion 1 | \A \\
+    \verb|         mov rbx, 0     ; codigo    | \A \\
+    \verb|         int 0x80                   | \A \\
+\end{frame}                          
+
+\begin{frame}[fragile]{Hola Mundo... solución}
+    \verb|     section .data                  |\\ 
+    \verb|       msg: DB 'Hola Mundo', 10     | \A \A \B \B \B \B \B \B \B \B \B \B \T \\
+    \verb|       largo EQU $ - msg            |\\
+    \verb|                                    |\\
+    \verb|       global _start                |\\
+    \verb|     section .text                  |\\
+    \verb|       _start:                      |\\
+    \verb|         mov rax, 4     ; funcion 4 | \A \A  \R \R \B \B \B \B \B \B \B \B \\
+    \verb|         mov rbx, 1     ; stdout    | \A \A  \R \R \B \B \B \B \B \B \B \B \\
+    \verb|         mov rcx, msg   ; mensaje   | \A \A  \R \R \B \B \B \B \B \B \B \B \\
+    \verb|         mov rdx, largo ; longitud  | \A \A  \R \R \B \B \B \B \B \B \B \B \\
+    \verb|         int 0x80                   | \A \A  \R \B \\
+    \verb|         mov rax, 1     ; funcion 1 | \A \A  \R \R \B \B \B \B \B \B \B \B \\
+    \verb|         mov rbx, 0     ; codigo    | \A \A  \R \R \B \B \B \B \B \B \B \B \\
+    \verb|         int 0x80                   | \A \A  \R \B \\
+\end{frame}
+
+\begin{frame}[fragile]{Ensamblando y linkeando}
+    Ensamblamos:\\
+    \vspace{0.2cm}
+    \verb|      nasm -f elf64 -g -F DWARF holamundo.asm|\\
+    \vspace{1cm}
+    Linkeamos:\\
+    \vspace{0.2cm}
+    \verb|      ld -o holamundo holamundo.o|\\
+    \vspace{1cm}
+    Ejecutamos:\\
+    \vspace{0.2cm}
+    \verb|      ./holamundo|\\
+\end{frame}
+
+\begin{frame}[fragile,t]{Ejecución}
+    \small
+    \vspace{0.2cm}
+        \verb|$ ./holamundo|\\
+        \pause
+        \vspace{0.2cm}
+        \verb|Hola Mundo|\\
+        \pause
+    \vspace{0.7cm}
+        \textcolor{verdeuca}{¿Dondé quedo el código de error?}\\
+        \pause
+        \vspace{0.2cm}
+        \verb|$ echo "$?"|\\
+        \pause
+        \vspace{0.2cm}
+        \verb|0|\\
+        \pause
+    \vspace{0.7cm}
+        \textcolor{verdeuca}{¿Cómo reconozco un binario?}\\
+        \pause
+        \vspace{0.2cm}
+        \verb|$ file holamundo|\\
+        \pause
+        \vspace{0.2cm}
+        \verb|holamundo: ELF 64-bit LSB executable, x86-64, version 1 (SYSV),|\\
+        \verb| statically linked, with debug_info, not stripped|\\
+\end{frame}
+
+\begin{frame}[fragile,t]{Ejecución}
+    \small
+    \textcolor{verdeuca}{Ya sabemos que es un \texttt{elf}. Pero ¿Qué tiene dentro?}\\
+    \pause
+    \vspace{0.2cm}
+    \verb|$ objdump -d holamundo|\\
+    \vspace{0.2cm}
+    \pause
+    \verb|holamundo:     file format elf64-x86-64|\\
+    \verb||\\
+    \verb|Disassembly of section .text:|\\
+    \verb||\\
+    \verb|00000000004000b0 <_start>:|\\
+    \verb|  4000b0:	b8 04 00 00 00       	mov    $0x4,%eax|\\
+    \verb|  4000b5:	bb 01 00 00 00       	mov    $0x1,%ebx|\\
+    \verb|  4000ba:	48 b9 d8 00 60 00 00 	movabs $0x6000d8,%rcx|\\
+    \verb|  4000c1:	00 00 00 |\\
+    \verb|  4000c4:	ba 0b 00 00 00       	mov    $0xb,%edx|\\
+    \verb|  4000c9:	cd 80                	int    $0x80|\\
+    \verb|  4000cb:	b8 01 00 00 00       	mov    $0x1,%eax|\\
+    \verb|  4000d0:	bb 00 00 00 00       	mov    $0x0,%ebx|\\
+    \verb|  4000d5:	cd 80                	int    $0x80|\\
+\end{frame}
+
+\begin{frame}[fragile,t]{Ejecución}
+    \small
+    \textcolor{verdeuca}{Y la sección de datos}\\
+    \pause
+    \vspace{0.2cm}
+    \verb|$ objdump -D holamundo|\\
+    \vspace{0.2cm}
+    \pause
+    $\dots$\\
+    \vspace{0.2cm}
+    \verb|Disassembly of section .data:|\\
+    \verb||\\
+    \verb|00000000006000d8 <msg>:|\\
+    \verb|  6000d8:	48 6f                	rex.W outsl %ds:(%rsi),(%dx)|\\
+    \verb|  6000da:	6c                   	insb   (%dx),%es:(%rdi)|\\
+    \verb|  6000db:	61                   	(bad)  |\\
+    \verb|  6000dc:	20 4d 75             	and    %cl,0x75(%rbp)|\\
+    \verb|  6000df:	6e                   	outsb  %ds:(%rsi),(%dx)|\\
+    \verb|  6000e0:	64 6f                	outsl  %fs:(%rsi),(%dx)|\\
+    \verb|  6000e2:	0a                   	.byte 0xa|\\
+    \vspace{0.2cm}
+    $\dots$
+\end{frame}
+
+\begin{frame}[fragile,t]{Ejecución}
+    \small
+    \textcolor{verdeuca}{Y si quiero encontrar una cadena de texto}\\
+    \pause
+    \vspace{0.2cm}
+    \verb|$ strings holamundo|\\
+    \vspace{0.2cm}
+    \pause
+    \verb|Hola Mundo|\\
+    \verb|holamundo.asm|\\
+    \verb|NASM 2.13.02|\\
+    \vspace{-0.1cm}
+    $\dots$\\
+    \vspace{0.1cm}
+    \verb|largo|\\
+    \vspace{-0.1cm}
+    $\dots$\\
+    \vspace{0.1cm}
+    \verb|.symtab|\\
+    \verb|.strtab|\\
+    \vspace{-0.1cm}
+    $\dots$\\
+    \vspace{0.1cm}
+    \verb|.text|\\
+    \verb|.data|\\
+    \verb|.debug_aranges|\\
+    \verb|.debug_pubnames|\\
+    \verb|.debug_info|\\
+    \vspace{-0.1cm}
+    $\dots$\\
+    \vspace{0.1cm}
+\end{frame}
+
+\begin{frame}[fragile,t]{Ejecución}
+    \small
+    \textcolor{verdeuca}{No confundir con los simbolos dentro de un binario.}\\
+    \pause
+    \vspace{0.2cm}
+    \verb|$ nm holamundo|\\
+    \vspace{0.2cm}
+    \pause
+    \verb|00000000006000e3 D __bss_start|\\
+    \verb|00000000006000e3 D _edata|\\
+    \verb|00000000006000e8 D _end|\\
+    \verb|000000000000000b a largo|\\
+    \verb|00000000006000d8 d msg|\\
+    \verb|00000000004000b0 T _start|\\
+    \pause
+    \vspace{0.4cm}
+    \textcolor{verdeuca}{¿Y donde se aprende como usar estos bonitos comandos?}\\
+    \pause
+    \vspace{0.2cm}
+    En el manual de referencia.\\
+    \pause
+    \vspace{0.4cm}
+    \textcolor{verdeuca}{¿Cómo accedo al manual?}\\
+    \pause
+    \vspace{0.2cm}
+    Mediante el comando \texttt{man}\\
+    \vspace{0.2cm}
+    \verb|$ man | \fbox{\textcolor{verdeuca}{comando}}
+\end{frame}
+
+\begin{frame}[fragile,t]{Ejecución}
+    \small
+    \verb|$ man nm|\\
+    \vspace{0.2cm}
+    \tiny
+\begin{verbatim}
+NM(1)                                     GNU Development Tools                                    NM(1)
+
+NAME
+       nm - list symbols from object files
+
+SYNOPSIS
+       nm [-A|-o|--print-file-name] [-a|--debug-syms]
+          [-B|--format=bsd] [-C|--demangle[=style]]
+          [-D|--dynamic] [-fformat|--format=format]
+          [-g|--extern-only] [-h|--help]
+          [-l|--line-numbers] [--inlines]
+          [-n|-v|--numeric-sort]
+          [-P|--portability] [-p|--no-sort]
+          [-r|--reverse-sort] [-S|--print-size]
+          [-s|--print-armap] [-t radix|--radix=radix]
+          [-u|--undefined-only] [-V|--version]
+          [-X 32_64] [--defined-only] [--no-demangle]
+          [--plugin name] [--size-sort] [--special-syms]
+          [--synthetic] [--with-symbol-versions] [--target=bfdname]
+          [objfile...]
+
+DESCRIPTION
+       GNU nm lists the symbols from object files objfile....  If no object files are listed as
+       arguments, nm assumes the file a.out.
+
+       For each symbol, nm shows:
+
+       ·   The symbol value, in the radix selected by options (see below), or hexadecimal by default.
+
+       ·   The symbol type.  At least the following types are used; others are, as well, depending on
+           the object file format.  If lowercase, the symbol is usually local; if uppercase, the symbol
+           is global (external).  There are however a few lowercase symbols that are shown for special
+           global symbols ("u", "v" and "w").
+
+           "A" The symbol's value is absolute, and will not be changed by further linking.
+
+           "B"
+           "b" The symbol is in the BSS data section.  This section typically contains zero-initialized
+               or uninitialized data, although the exact behavior is system dependent.
+
+           "C" The symbol is common.  Common symbols are uninitialized data.  When linking, multiple
+               common symbols may appear with the same name.  If the symbol is defined anywhere, the
+               common symbols are treated as undefined references.
+
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[plain]
+    \begin{center}
+    \Huge Debugger
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{GDB}}
+    Comandos Básicos\\
+    \vspace{0.2cm}
+    \small
+    \begin{tabular}{ll}
+    \verb;r | run;             & Ejecuta el programa hasta el primer break\\
+    & \\
+    \verb;b | break FILE:LINE; & Breakpoint en la línea\\
+    \verb;b | break FUNCTION;  & Breakpoint en la función\\
+    \verb;info breakpoints;    & Muestra información sobre los breakpoints\\
+    & \\
+    \verb;c | continue;        & Continúa con la ejecución\\
+    \verb;s | step;            & Siguiente línea (Into)\\
+    \verb;n | next;            & Siguiente línea (Over)\\
+    \verb;si | stepi;          & Siguiente instrucción asm (Into)\\
+    \verb;ni | nexti;          & Siguiente instrucción asm (Over)\\
+    & \\
+    \verb;x/;\textcolor{red}{\texttt{N}}\textcolor{orange}{\texttt{u}}\textcolor{blue}{\texttt{f}} \verb;ADDR;          & Muestra los datos en memoria\\ % i.e. x/4gx $rsp
+    \end{tabular}\\
+    % \vspace{0.2cm}
+    \scriptsize
+    \hspace{.55cm} \textcolor{red}{\texttt{N}} = Cantidad (bytes)\\
+    \hspace{.55cm} \textcolor{orange}{\texttt{u}} = Unidad \verb;b|h|w|g;\\
+    \hspace{.55cm} \hspace{0.37cm} \verb;b:byte, h:word, w:dword, g:qword;\\
+    \hspace{.55cm} \textcolor{blue}{\texttt{f}} = Formato \verb;x|d|u|o|f|a;\\
+    \hspace{.55cm} \hspace{0.37cm} \verb;x;:hex, \verb;d;:decimal, \verb;u;:decimal sin signo, \verb;o;:octal, \verb;f;:float, \verb;a;:direcciones, \verb;s;:strings, \verb;i;:inst.\\
+\end{frame}
+
+\begin{frame}[fragile,t]{\texttt{GDB - Mostrar memoria}}
+    \small
+    \verb;x/;\textcolor{red}{\texttt{N}}\textcolor{orange}{\texttt{u}}\textcolor{blue}{\texttt{f}} \verb;ADDR;\\
+    \vspace{0.2cm}
+    \textcolor{red}{\texttt{N}} = Cantidad (bytes)\\
+    \textcolor{orange}{\texttt{u}} = Unidad \verb;b|h|w|g;\\
+    \hspace{0.37cm} \verb;b:byte, h:word, w:dword, g:qword;\\
+    \textcolor{blue}{\texttt{f}} = Formato \verb;x|d|u|o|f|a;\\
+    \hspace{0.37cm} \verb;x;:hex, \verb;d;:decimal, \verb;u;:decimal sin signo, \verb;o;:octal, \verb;f;:float,\\
+    \hspace{0.37cm} \verb;a;:direcciones, \verb;s;:strings, \verb;i;:instrucciones.\\
+    \vspace{0.4cm}
+    \pause
+    \textcolor{verdeuca}{Ejemplos}
+    \vspace{0.2cm}
+    \begin{itemize}
+    \item[-] \verb|x/3bx | \fbox{\textcolor{verdeuca}{addr}} \hspace{0.1cm} : Tres bytes en hexadecimal.
+    \pause
+    \item[-] \verb|x/5wd | \fbox{\textcolor{verdeuca}{addr}} \hspace{0.1cm} : Cinco enteros de 32 bits con signo.
+    \pause
+    \item[-] \verb|x/1ho | \fbox{\textcolor{verdeuca}{addr}} \hspace{0.1cm} : Un número de 16 bits en representación octal.
+    \pause
+    \item[-] \verb|x/10gf | \fbox{\textcolor{verdeuca}{addr}} \hspace{0.1cm} : Diez doubles.
+    \pause
+    \item[-] \verb|x/s | \fbox{\textcolor{verdeuca}{addr}} \hspace{0.1cm} : Una string terminada en cero.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{GDB}
+    Configuración de GDB:\\
+    \vspace{0.1cm}
+    \begin{verbatim}
+        ~/.gdbinit 
+    \end{verbatim}
+    \vspace{0.4cm}
+    Para usar sintaxis intel y guardar historial de comandos:\\
+    \vspace{0.1cm}
+    \begin{verbatim}
+        set disassembly-flavor intel
+        set history save
+    \end{verbatim}
+    \vspace{0.4cm}
+    Correr \texttt{GDB} con argumentos:
+    \vspace{0.1cm}
+    \begin{verbatim}
+        gdb --args <ejecutable> <arg1> <arg2> ...
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile,t]{GDB}
+\small
+\begin{verbatim}
+$ gdb holamundo 
+\end{verbatim}
+\pause
+\begin{verbatim}
+GNU gdb (Ubuntu 8.1-0ubuntu3.2) 8.1.0.20180409-git
+\end{verbatim}
+\scriptsize
+\vspace{-0.8cm}
+\begin{verbatim}
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+\end{verbatim}
+\small
+\vspace{-0.8cm}
+\begin{verbatim}
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from holamundo...done.
+(gdb) 
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile,t]{GDB}
+    \hspace{3cm}
+    \begin{minipage}{10cm}
+    \vspace{-0.5cm}
+    \scriptsize
+    \verb|(gdb) | \pause \verb|b _start|\\ \pause
+    \verb|Breakpoint 1 at 0x4000b0: file holamundo.asm, line 8.|\\
+    \verb|(gdb) | \pause \verb|r|\\ \pause
+    \verb|Starting program: /holamundo |\\
+    \verb|Breakpoint 1, _start () at holamundo.asm:8   |\\
+    \verb|8	    mov rax, 4     ; funcion 4             |\\
+    \verb|(gdb) | \pause \verb|n|\\ \pause
+    \verb|9	    mov rbx, 1     ; stdout                |\\
+    \verb|(gdb) | \pause \\ 
+    \verb|10	    mov rcx, msg   ; mensaje           |\\
+    \verb|(gdb) | \pause \\ 
+    \verb|11	    mov rdx, largo ; longitud          |\\
+    \verb|(gdb) | \pause \\ 
+    \verb|12	    int 0x80                           |\\
+    \verb|(gdb) | \pause \\ 
+    \verb|Hola Mundo                                   |\\
+    \verb|13	    mov rax, 1     ; funcion 1         |\\
+    \verb|(gdb) | \pause \\ 
+    \verb|14	    mov rbx, 0     ; codigo            |\\
+    \verb|(gdb) | \pause \\ 
+    \verb|15	    int 0x80                           |\\
+    \verb|(gdb) | \pause \\ 
+    \verb|[Inferior 1 (process 20626) exited normally] |\\
+    \verb|(gdb)                                        |\\
+    \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile,t]{GDB}
+    \hspace{3cm}
+    \begin{minipage}{10cm}
+    \vspace{-0.5cm}
+    \scriptsize
+    \verb|(gdb) | \pause \verb|r|\\
+    \verb|Starting program: /holamundo |\\
+    \verb|Breakpoint 1, _start () at holamundo.asm:8   |\\
+    \verb|8	    mov rax, 4     ; funcion 4             |\\
+    \verb|(gdb) | \verb|n|\\ 
+    \verb|9	    mov rbx, 1     ; stdout                |\\
+    \verb|(gdb) | \\ 
+    \verb|10	    mov rcx, msg   ; mensaje           |\\
+    \verb|(gdb) |\\ 
+    \verb|11	    mov rdx, largo ; longitud          |\\
+    \verb|(gdb) |\\ 
+    \verb|12	    int 0x80                           |\\
+    \verb|(gdb) | \pause \verb|x/s $rcx|\\ \pause
+    \verb|0x6000d8 <msg>:	"Hola Mundo\n,"|\\
+    \verb|(gdb) | \pause \verb|info reg|\\ \pause
+    \verb|rax            0x4	4|\\
+    \verb|rbx            0x1	1|\\
+    \verb|rcx            0x6000d8	6291672|\\
+    \verb|rdx            0xb	11|\\
+    \vspace{-0.1cm}
+    $\dots$\\
+    \vspace{0.1cm}
+    \verb|rsp            0x7fffffffdbf0	0x7fffffffdbf0|\\
+    \vspace{-0.1cm}
+    $\dots$\\
+    \vspace{0.1cm}
+    \verb|rip            0x4000c9	0x4000c9 <_start+25>|\\
+    \verb|eflags         0x202	[ IF ]|\\
+    \vspace{-0.1cm}
+    $\dots$\\
+    \vspace{0.1cm}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile,t]{GDB}
+    \hspace{3cm}
+    \begin{minipage}{10cm}
+    \vspace{-0.5cm}
+    \scriptsize
+    \verb|Breakpoint 1, _start () at holamundo.asm:8|\\
+    \verb|8	    mov rax, 4     ; funcion 4 |\\
+    \vspace{0.1cm}
+    \verb|(gdb) | \pause \verb|list|\\
+    \pause
+    \vspace{0.1cm}
+    \verb|3   largo EQU $ - msg            |\\
+    \verb|4                                |\\
+    \verb|5   global _start                |\\
+    \verb|6 section .text                  |\\
+    \verb|7   _start:                      |\\
+    \verb|8     mov rax, 4     ; funcion 4 |\\
+    \verb|9     mov rbx, 1     ; stdout    |\\
+    \verb|10    mov rcx, msg   ; mensaje  |\\ 
+    \verb|11    mov rdx, largo ; longitud  |\\
+    \verb|12    int 0x80                   |\\
+    \vspace{0.1cm}
+    \verb|(gdb) | \pause \verb|list|\\
+    \pause
+    \vspace{0.1cm}
+    \verb|13    mov rax, 1     ; funcion 1 |\\
+    \verb|14    mov rbx, 0     ; codigo    |\\
+    \verb|15    int 0x80                   |\\
+    \verb|(gdb) |\\
+    \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile,t]{GDB}
+    \vspace{1cm}
+    \scriptsize
+    \verb|Breakpoint 1, _start () at holamundo.asm:8|\\
+    \verb|8	    mov rax, 4     ; funcion 4 |\\
+    \vspace{0.1cm}
+    \verb|(gdb) | \pause \verb|x/12i $rip|\\
+    \pause
+    \vspace{0.1cm}
+    \verb|=> 0x4000b0 <_start>:     mov    $0x4,%eax|\\
+    \verb|   0x4000b5 <_start+5>:   mov    $0x1,%ebx|\\
+    \verb|   0x4000ba <_start+10>:  movabs $0x6000d8,%rcx|\\
+    \verb|   0x4000c4 <_start+20>:  mov    $0xb,%edx|\\
+    \verb|   0x4000c9 <_start+25>:  int    $0x80|\\
+    \verb|   0x4000cb <_start+27>:  mov    $0x1,%eax|\\
+    \verb|   0x4000d0 <_start+32>:  mov    $0x0,%ebx|\\
+    \verb|   0x4000d5 <_start+37>:  int    $0x80|\\
+    \verb|   0x4000d7:	add    %cl,0x6f(%rax)|\\
+    \verb|   0x4000da:	insb   (%dx),%es:(%rdi)|\\
+    \verb|   0x4000db:	(bad)  |\\
+    \verb|   0x4000dc:	and    %cl,0x75(%rbp)|\\
+    \vspace{0.1cm}
+    \verb|(gdb) |\\
+    \begin{textblock}{50}(90,2)
+    \begin{block}{\small\texttt{holamundo.asm}}
+    \verb|section .data                  |\\ 
+    \verb|  msg: DB 'Hola Mundo', 10     |\\
+    \verb|  largo EQU $ - msg            |\\
+    \verb|                               |\\
+    \verb|  global _start                |\\
+    \verb|section .text                  |\\
+    \verb|  _start:                      |\\
+    \verb|    mov rax, 4     ; funcion 4 |\\
+    \verb|    mov rbx, 1     ; stdout    |\\
+    \verb|    mov rcx, msg   ; mensaje   |\\
+    \verb|    mov rdx, largo ; longitud  |\\
+    \verb|    int 0x80                   |\\
+    \verb|    mov rax, 1     ; funcion 1 |\\
+    \verb|    mov rbx, 0     ; codigo    |\\
+    \verb|    int 0x80                   |
+    \end{block}
+    \end{textblock}
+\end{frame}
+
+\begin{frame}[plain]
+    \begin{center}
+    \vspace{2cm}
+    \huge ¡Gracias!\\
+    \vspace{2cm}
+    \normalsize Recuerden leer los comentarios al final de \\ este video por aclaraciones o fe de erratas.
+    \end{center}
+\end{frame}
+
+\end{document}
+
