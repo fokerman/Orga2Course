@@ -13,5 +13,6 @@ clean:
 	rm -f *.aux *.log *.nav *.out *.toc *.vrb *.snm *.synctex.gz
 
 remove:
+	make clean
 	make -C img/ clean
 	rm $(DOC).pdf

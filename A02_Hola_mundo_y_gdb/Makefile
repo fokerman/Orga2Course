@@ -12,4 +12,5 @@ clean:
 	rm -f *.aux *.log *.nav *.out *.toc *.vrb *.snm *.synctex.gz
 
 remove:
+	make clean
 	rm $(DOC).pdf
