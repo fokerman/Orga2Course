@@ -15,4 +15,4 @@ clean:
 remove:
 	make clean
 	make -C img/ clean
-	rm $(DOC).pdf
+	rm -f $(DOC).pdf

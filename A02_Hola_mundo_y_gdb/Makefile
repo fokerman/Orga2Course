@@ -13,4 +13,4 @@ clean:
 
 remove:
 	make clean
-	rm $(DOC).pdf
+	rm -f $(DOC).pdf
