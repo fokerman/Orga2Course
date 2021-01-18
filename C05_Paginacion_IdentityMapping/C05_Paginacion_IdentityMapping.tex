@@ -1,0 +1,318 @@
+% === C05 - Paginación Identity Mapping ===
+% David Alejandro Gonzalez Marquez
+% dmarquez@dc.uba.ar / fokerman@gmail.com
+% https://github.com/fokerman/Orga2Course
+
+\documentclass[aspectratio=169]{beamer}
+% \documentclass[handout]{beamer}
+
+% % % Packages
+\usepackage[sfdefault]{AlegreyaSans}
+\usepackage{inconsolata}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[absolute,overlay]{textpos}
+  \setlength{\TPHorizModule}{1mm}
+  \setlength{\TPVertModule}{1mm}
+\usepackage{framed}
+\usepackage{mfirstuc} % para poner en mayusculas la primer letra
+\usepackage{xspace} % para crear espacios en comandos 
+\usepackage{pbox}
+\usepackage{tikz}
+\usepackage{mathabx}
+
+% % % Beamer config
+\usetheme{Pittsburgh}
+\usecolortheme[rgb={1,0.48,0.0}]{structure}
+\setbeamercolor{block title}{fg=white,bg=verdeuca}
+\xdefinecolor{verdeuca}{rgb}{0.0,0.48,0.54}
+\xdefinecolor{naranjauca}{rgb}{1,0.48,0.0}
+\setbeamercolor{palette quaternary}{fg=white,bg=verdeuca}
+\setbeamertemplate{title page}[default][colsep=-4bp, rounded=true] % remove title shadow
+\setbeamertemplate{frametitle}[default][colsep=-2bp, shadow=false] % remove frame title shadow
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols
+\beamertemplatenavigationsymbolsempty
+
+% % % Colors
+\definecolor{AzulClaro}{rgb}{.31,.506,.741}
+\definecolor{Gris}{gray}{0.8}
+\definecolor{Celeste}{rgb}{.255,.41,.884}
+\definecolor{Rojo}{rgb}{1, 0, 0}
+\definecolor{a}{rgb}{0.0, 0.53, 0.74}
+\definecolor{r}{rgb}{0.89, 0.0, 0.13}
+\definecolor{v}{rgb}{0.0, 0.5, 0.0}
+\definecolor{y}{rgb}{0.0, 0.5, 0.5}
+\definecolor{rojo}{HTML}{F1521B}
+\definecolor{verde}{HTML}{80CD29}
+\definecolor{amarillo}{HTML}{FABC09}
+\definecolor{azul}{HTML}{00ADF1}
+
+% % % Rename
+\newcommand{\tab}[0]{\hspace{15pt}}
+
+% % % Blocks
+\setbeamercolor{block body}{fg=black, bg=black!10}
+\setbeamercolor{block title}{fg=black, bg=black!20}
+\setbeamercolor{coloredboxstuffNaranja}{fg=naranjauca,bg=black!10} %% PARA LOS BOX
+\setbeamercolor{coloredboxstuffVerde}{fg=verdeuca,bg=black!10} %% PARA LOS BOX
+
+% % % Start
+
+\title{\Huge Paginación Identity Mapping}
+\subtitle{Programación de Sistemas Operativos}
+      
+\author{David Alejandro González Márquez}
+\institute{Departamento de Computación\\
+Facultad de Ciencias Exactas y Naturales\\
+Universidad de Buenos Aires}
+\date{}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}
+    \only<2>{\frametitle{Usted estabá aquí}}
+    \only<3>{\frametitle{Usted estará aquí}}
+    \only<1>{\frametitle{Usted ...}}
+    \begin{textblock}{100}(45,1) \only<2->{\includegraphics[scale=0.52]{img/usted_esta_aqui-layer1.pdf}} \end{textblock}
+    \begin{textblock}{100}(45,1) \only<3->{\includegraphics[scale=0.52]{img/usted_esta_aqui-layer2.pdf}} \end{textblock}
+    \begin{textblock}{100}(45,1) \only<1->{\includegraphics[scale=0.52]{img/usted_esta_aqui-layer3.pdf}} \end{textblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Unidades de administación de memoria}
+    \begin{textblock}{100}(10,12) \only<1->{\includegraphics[scale=0.33]{img/direccion_logica_lineal_fisica-layer1.pdf}} \end{textblock}
+    \begin{textblock}{100}(10,12) \only<2->{\includegraphics[scale=0.33]{img/direccion_logica_lineal_fisica-layer2.pdf}} \end{textblock}
+    \begin{textblock}{100}(10,12) \only<3->{\includegraphics[scale=0.33]{img/direccion_logica_lineal_fisica-layer3.pdf}} \end{textblock}
+    \begin{textblock}{100}(10,12) \only<4->{\includegraphics[scale=0.33]{img/direccion_logica_lineal_fisica-layer4.pdf}} \end{textblock}
+    \begin{textblock}{100}(10,12) \only<5->{\includegraphics[scale=0.33]{img/direccion_logica_lineal_fisica-layer5.pdf}} \end{textblock}
+    \begin{textblock}{100}(10,12) \only<6->{\includegraphics[scale=0.33]{img/direccion_logica_lineal_fisica-layer6.pdf}} \end{textblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Mecanismo de Paginación}
+    \begin{textblock}{100}(2,12) \only<1->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer1.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,12) \only<2->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer2.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,12) \only<3->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer3.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,12) \only<4->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer4.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,12) \only<5->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer5.pdf}} \end{textblock}
+    \begin{textblock}{200}(10,80)
+    \only<6->{ \textcolor{verdeuca}{Para el contexto del TP vamos a limitarnos a Paginación con páginas de 4KB sin \texttt{PAE}} }
+    \end{textblock}
+\end{frame}
+
+\begin{frame}
+    \only<1>{\frametitle{CR3 - Control Register 3}}
+    \only<2>{\frametitle{PDE - Page Directory Entry}}
+    \only<3>{\frametitle{PDE - Page Table Entry}}
+    \only<4>{\frametitle{CR0 - Control Register 0}}
+    \begin{textblock}{100}(10,16) \only<1>{\includegraphics[scale=0.9]{img/cr0_cr3_pde_pt2-layer1.pdf}} \end{textblock}
+    \begin{textblock}{100}(10,16) \only<2>{\includegraphics[scale=0.9]{img/cr0_cr3_pde_pt2-layer2.pdf}} \end{textblock}
+    \begin{textblock}{100}(10,16) \only<3>{\includegraphics[scale=0.9]{img/cr0_cr3_pde_pt2-layer3.pdf}} \end{textblock}
+    \begin{textblock}{100}(10,16) \only<4>{\includegraphics[scale=0.9]{img/cr0_cr3_pde_pt2-layer4.pdf}} \end{textblock}
+    
+    \begin{textblock}{100}(70,16)  \only<1>{\begin{itemize}
+                                             \item[-] Puntero a la base de la \texttt{page} \texttt{directory}.
+                                             \item[-] Modificar este registro implica resetear la \texttt{TLB}.
+                                            \end{itemize} } \end{textblock}
+    \begin{textblock}{100}(95,16) \only<2>{\begin{itemize}
+                                             \item[-] Entrada de la \texttt{page} \texttt{directory}
+                                             \item[] 
+                                             \item[-] Atributos importantes:
+                                             \item[] \hspace{0.5cm} \texttt{Presente}
+                                             \item[] \hspace{0.5cm} \texttt{Read/Write}
+                                             \item[] \hspace{0.5cm} \texttt{User/Supervisor}
+                                            \end{itemize} } \end{textblock}
+    \begin{textblock}{100}(95,16) \only<3>{\begin{itemize}
+                                             \item[-] Entrada de la \texttt{page} \texttt{table}
+                                             \item[] 
+                                             \item[-] Atributos importantes:
+                                             \item[] \hspace{0.5cm} \texttt{Presente}
+                                             \item[] \hspace{0.5cm} \texttt{Read/Write}
+                                             \item[] \hspace{0.5cm} \texttt{User/Supervisor}
+                                            \end{itemize} } \end{textblock}
+    \begin{textblock}{100}(95,16) \only<4>{\begin{itemize}
+                                             \item[-] Permite activar \texttt{Paginación}
+                                            \end{itemize} } \end{textblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo Numérico}
+    \begin{textblock}{100}(1,2) \only<1->{ \includegraphics[scale=0.31]{img/ejemplo_paginacion-layer1.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<2->{ \includegraphics[scale=0.31]{img/ejemplo_paginacion-layer2.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<3->{ \includegraphics[scale=0.31]{img/ejemplo_paginacion-layer3.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<4->{ \includegraphics[scale=0.31]{img/ejemplo_paginacion-layer4.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<5->{ \includegraphics[scale=0.31]{img/ejemplo_paginacion-layer5.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<6->{ \includegraphics[scale=0.31]{img/ejemplo_paginacion-layer6.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<7->{ \includegraphics[scale=0.31]{img/ejemplo_paginacion-layer7.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<8->{ \includegraphics[scale=0.31]{img/ejemplo_paginacion-layer8.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<9->{ \includegraphics[scale=0.31]{img/ejemplo_paginacion-layer9.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<10->{\includegraphics[scale=0.31]{img/ejemplo_paginacion-layer10.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<11->{\includegraphics[scale=0.31]{img/ejemplo_paginacion-layer11.pdf}} \end{textblock}
+    \begin{textblock}{100}(1,2) \only<12->{\includegraphics[scale=0.31]{img/ejemplo_paginacion-layer12.pdf}} \end{textblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ejemplo Identity Mapping}
+    \begin{textblock}{100}(2,18) \only<1->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer6.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,18) \only<2->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer7.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,18) \only<3->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer8.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,18) \only<4->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer9.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,18) \only<5->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer10.pdf}} \end{textblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Identity Mapping para los primeros 16KB}
+    \begin{textblock}{100}(2,18) \only<1->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer11.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,18) \only<2->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer12.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,18) \only<3->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer13.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,18) \only<4->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer14.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,18) \only<5->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer15.pdf}} \end{textblock}
+    \begin{textblock}{100}(2,18) \only<6->{\includegraphics[scale=0.285]{img/tablas_paginacion-layer16.pdf}} \end{textblock}
+\end{frame}
+
+\begin{frame}
+    \only<1->{\frametitle{Resolver direcciones}}
+    \begin{textblock}{100}(13,12) \only<1->{ \includegraphics[scale=0.35]{img/direcciones-layer1.pdf}} \end{textblock}
+    \begin{textblock}{100}(13,12) \only<2->{ \includegraphics[scale=0.35]{img/direcciones-layer2.pdf}} \end{textblock}
+    \only<3->{\frametitle{Identity Mapping en segmentación y paginación}}
+    \begin{textblock}{100}(13,12) \only<3-6>{ \includegraphics[scale=0.35]{img/direcciones-layer3.pdf}} \end{textblock}
+    \begin{textblock}{100}(13,12) \only<4-6>{ \includegraphics[scale=0.35]{img/direcciones-layer4.pdf}} \end{textblock}
+    \begin{textblock}{100}(13,12) \only<5-6>{ \includegraphics[scale=0.35]{img/direcciones-layer5.pdf}} \end{textblock}
+    \begin{textblock}{100}(13,12) \only<6-6>{ \includegraphics[scale=0.35]{img/direcciones-layer6.pdf}} \end{textblock}
+    \only<7->{\frametitle{Identity Mapping en segmentación, paginación distinta de Identity Mapping}}
+    \begin{textblock}{100}(13,12) \only<8-11>{ \includegraphics[scale=0.35]{img/direcciones-layer7.pdf}} \end{textblock}
+    \begin{textblock}{100}(13,12) \only<9-11>{ \includegraphics[scale=0.35]{img/direcciones-layer8.pdf}} \end{textblock}
+    \begin{textblock}{100}(13,12) \only<10-11>{ \includegraphics[scale=0.35]{img/direcciones-layer9.pdf}} \end{textblock}
+    \begin{textblock}{100}(13,12) \only<11-11>{\includegraphics[scale=0.35]{img/direcciones-layer10.pdf}} \end{textblock}
+    \only<12->{\frametitle{Identity Mapping en paginación, segmentación con base distinta de cero}}
+    \begin{textblock}{100}(13,12) \only<13->{\includegraphics[scale=0.35]{img/direcciones-layer11.pdf}} \end{textblock}    
+    \begin{textblock}{100}(13,12) \only<14->{\includegraphics[scale=0.35]{img/direcciones-layer12.pdf}} \end{textblock}
+    \begin{textblock}{100}(13,12) \only<15->{\includegraphics[scale=0.35]{img/direcciones-layer13.pdf}} \end{textblock}
+    \begin{textblock}{100}(13,12) \only<16->{\includegraphics[scale=0.35]{img/direcciones-layer14.pdf}} \end{textblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Hasta ahora tenemos segmentación activa,}
+    \begin{itemize}
+    \setlength\itemsep{0.3cm}
+    \item[-] Deshabilitamos las interrupciones \texttt{CLI}
+    \item[-] Habilitamos la \texttt{A20}
+    \item[-] Creamos y completamos la \texttt{GDT}
+    \item[-] Cargamos el registro \texttt{GDTR} con la dirección base y el límite de la \texttt{GDT}
+    \item[-] Seteamos el bit \texttt{PE} del registro \texttt{CR0}
+    \pause
+    \item[-] Realizamos un \texttt{JUMP FAR} a la siguiente instrucción
+    \item[-] Actualizamos la información de los registros de segmento \texttt{DS}, \texttt{ES}, \texttt{GS}, \texttt{FS} y \texttt{SS}
+    \item[-] Pintamos la pantalla
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Tenemos además interrupciones,}
+    \begin{itemize}
+    \setlength\itemsep{0.3cm}
+    \item[-] Creamos y completamos una \texttt{IDT} básica
+    \item[-] Asociamos cada excepción a su rutina de atención
+    \item[-] Asociamos las rutinas de interrupciones externas
+    \pause
+    \item[-] Creamos entradas para los servicios del sistema
+    \item[-] Programamos la rutina de atención de reloj
+    \item[-] Programamos la rutina de atención de teclado
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Y ahora activamos paginación,}
+    \begin{itemize}
+    \setlength\itemsep{0.7cm}
+    \item[-] Armar un directorio de páginas en \texttt{0x27000} y una tablas de páginas en \texttt{0x28000}.\\
+    Mapeando los primeros 4MB de memoria con Identity Mapping.
+    \pause
+    \item[-] Cargar en el registro \texttt{CR3} la dirección base del directorio de páginas.
+    \pause
+    \item[-] Limpiar los bits \texttt{PCD} y \texttt{PWT} del registro \texttt{CR3}.
+    \pause
+    \item[-] Setear el bit \texttt{PG} de \texttt{CR0} para activar paginación.
+    \end{itemize}
+    \pause
+    \vspace{0.3cm}
+    \begin{center}
+    \large
+    \textcolor{verdeuca}{A partir de ahora TODOS los accesos a memoria serán resueltos usando paginación}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Seudocódigo para armar Indentity Mapping en el Kernel}
+    \begin{verbatim}
+    mmu_initKernelDir()
+
+        PD = KERNEL_PAGE_DIR
+        PT = KERNEL_PAGE_TABLE_0
+
+        mmu_zerosPage(PD)
+        mmu_zerosPage(PT)
+        
+        PD[0] = PT | PAG_S | PAG_RW | PAG_P
+
+        for (i = 0; i < 1024; i++)
+            PT[i] = (i << 12) | PAG_S | PAG_RW | PAG_P
+        
+        return PD
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Código del Kernel para activar Paginación}
+    \begin{verbatim}
+    ; Inicializar el manejador de memoria
+    call mmu_init
+ 
+    ; Inicializar el directorio de paginas
+    call mmu_initKernelDir
+
+    ; Cargar directorio de paginas
+    mov cr3, eax
+
+    ; Habilitar paginacion
+    mov eax, cr0
+    or  eax, 0x80000000
+    mov cr0, eax
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Bibliografía: Fuentes y material adicional}
+    \begin{itemize}
+    \item Convenciones de llamados a función en x86: \\
+    \url{https://en.wikipedia.org/wiki/X86_calling_conventions}
+    \item Notas sobre System V ABI: \\
+    \url{https://wiki.osdev.org/System_V_ABI}
+    \item Documentación de NASM: \\
+    \url{https://nasm.us/doc/}
+    \item Artículo sobre el flag \texttt{-pie}: \\
+    \url{https://eklitzke.org/position-independent-executables}
+    \item Documentación de System V ABI: \\
+    \url{https://uclibc.org/docs/psABI-x86_64.pdf}
+    \item Manuales de Intel: \\
+    \url{https://software.intel.com/en-us/articles/intel-sdm}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[plain]
+    \begin{center}
+    \vspace{2cm}
+    \huge ¡Gracias!\\
+    \vspace{2cm}
+    \normalsize Recuerden leer los comentarios al final de \\ este video por aclaraciones o fe de erratas.
+    \end{center}
+\end{frame}
+
+\end{document}

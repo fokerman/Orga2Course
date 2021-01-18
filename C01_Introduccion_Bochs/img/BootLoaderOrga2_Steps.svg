@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:ns1="https://launchpad.net/jessyink"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.1-dev (d1157cc2fb, 2020-05-29)"
+   sodipodi:docname="BootLoaderOrga2_Steps.svg"
+   id="svg4972"
+   version="1.1"
+   viewBox="0 0 261.16305 131.33011"
+   height="131.33011mm"
+   width="261.16306mm">
+  <defs
+     id="defs4966">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible">
+      <path
+         id="path38854"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart-9"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path38833-7"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     fit-margin-bottom="0"
+     fit-margin-right="0"
+     fit-margin-left="0"
+     fit-margin-top="0"
+     inkscape:window-maximized="1"
+     inkscape:window-y="1107"
+     inkscape:window-x="0"
+     inkscape:window-height="1025"
+     inkscape:window-width="1920"
+     showgrid="false"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="46.182792"
+     inkscape:cx="474.11346"
+     inkscape:zoom="0.49497475"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:snap-global="false" />
+  <metadata
+     id="metadata4969">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     style="display:inline"
+     transform="translate(434.00803,313.93358)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       id="g38569-1"
+       transform="matrix(0.26458333,0,0,0.26458333,-496.0459,-437.95326)"
+       style="display:inline">
+      <ellipse
+         ry="30.353508"
+         rx="91.060524"
+         cy="496.91177"
+         cx="844.66486"
+         transform="translate(33.170259,222.43194)"
+         id="path9109-9-4"
+         style="display:inline;fill:#0169c9;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <rect
+         y="610.4502"
+         x="786.7746"
+         height="109.60889"
+         width="182.12032"
+         id="rect9077-0-2"
+         style="display:inline;fill:#0169c9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.02314" />
+      <ellipse
+         ry="30.353508"
+         rx="91.060524"
+         cy="496.91177"
+         cx="844.66486"
+         transform="translate(33.170259,113.68218)"
+         id="path9109-7"
+         style="display:inline;fill:#013397;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text
+         id="text4820-54-7-1-8-6-3"
+         y="559.69012"
+         x="877.8385"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.3333px;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:center;text-anchor:middle;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           id="tspan9324-5"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.3333px;line-height:1.25;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:center;text-anchor:middle;fill:#000000"
+           y="559.69012"
+           x="877.8385"
+           sodipodi:role="line">diskette</tspan></text>
+    </g>
+    <rect
+       style="fill:#339900;stroke:none;stroke-width:0.264583"
+       id="rect47570"
+       width="26.510313"
+       height="80.735962"
+       x="-402.14462"
+       y="-303.69626"
+       rx="0"
+       ry="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944px;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-405.77469"
+       y="-307.50421"
+       id="text4820-54-7-1-9"><tspan
+         sodipodi:role="line"
+         id="tspan4822-6-1-2-6"
+         x="-405.77469"
+         y="-307.50421"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944px;line-height:1.25;font-family:FreeSans;-inkscape-font-specification:FreeSans;fill:#000000;stroke-width:0.264583">memoria</tspan></text>
+    <flowRoot
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;line-height:1.25;font-family:FreeSans;-inkscape-font-specification:FreeSans;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       id="flowRoot932"
+       xml:space="preserve"><flowRegion
+         id="flowRegion934"><rect
+           style="stroke-width:0.264583"
+           y="-431.20984"
+           x="-222.78535"
+           height="12.117893"
+           width="65.050117"
+           id="rect936" /></flowRegion><flowPara
+         id="flowPara938"></flowPara></flowRoot>
+  </g>
+  <g
+     transform="translate(-9.8847862e-7,-0.2275379)"
+     style="display:inline"
+     inkscape:label="Layer 2"
+     id="layer2"
+     inkscape:groupmode="layer">
+    <g
+       transform="matrix(0.26458333,0,0,0.26458333,-28.588139,-37.288269)"
+       id="g47990"
+       style="display:inline">
+      <text
+         id="text47899-9"
+         y="430.57452"
+         x="139.86588"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           y="430.57452"
+           x="139.86588"
+           id="tspan47901-7"
+           sodipodi:role="line"
+           style="font-size:23.9325px;line-height:1.25">0x7C00</tspan></text>
+      <rect
+         ry="0"
+         rx="0"
+         y="410.48077"
+         x="235.30991"
+         height="24.290049"
+         width="86.533302"
+         id="rect47570-0-4"
+         style="display:inline;fill:#ffff00;stroke:none" />
+    </g>
+  </g>
+  <g
+     transform="translate(-9.8847862e-7,-0.2275379)"
+     style="display:inline"
+     inkscape:label="Layer 3"
+     id="layer3"
+     inkscape:groupmode="layer">
+    <g
+       id="g50258"
+       ns1:effectIn="name:appear;order:1;length:800"
+       style="display:inline"
+       transform="matrix(0.26458333,0,0,0.26458333,-28.588139,-37.288269)">
+      <g
+         id="g47985">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+           x="139.86588"
+           y="218.79826"
+           id="text47899"><tspan
+             style="font-size:23.9325px;line-height:1.25"
+             sodipodi:role="line"
+             id="tspan47901"
+             x="139.86588"
+             y="218.79826">0x1000</tspan></text>
+        <rect
+           style="display:inline;fill:#ffff00;stroke:none"
+           id="rect47570-0"
+           width="86.533302"
+           height="24.290049"
+           x="235.30991"
+           y="198.70186"
+           rx="0"
+           ry="0" />
+      </g>
+      <g
+         transform="matrix(0.54496231,0,0,0.54496231,-470.18329,20.874832)"
+         id="g48362-1">
+        <circle
+           r="35.586872"
+           cy="241.52364"
+           cx="165.37428"
+           transform="matrix(0.75000006,0,0,0.75000006,963.71071,132.18925)"
+           id="path10026-3-4-7"
+           style="display:inline;fill:#fdca01;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+           x="1074.1157"
+           y="327.58881"
+           id="text9702-2-4-0-6-1"><tspan
+             sodipodi:role="line"
+             x="1074.1157"
+             y="327.58881"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.1656px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:start;writing-mode:lr-tb;text-anchor:start"
+             id="tspan9857-9-5-8-0">1</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g48382"
+       ns1:effectIn="name:appear;order:1;length:800"
+       style="display:inline"
+       transform="matrix(0.26458333,0,0,0.26458333,-28.588139,-46.909969)">
+      <text
+         id="text9702-0-5-9-6-4-2-5"
+         y="576.72223"
+         x="117.22919"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.9433px;line-height:125%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;writing-mode:lr-tb;text-anchor:start"
+           id="tspan9712-7-4-8-5-3-3-5"
+           y="576.72223"
+           x="117.22919"
+           sodipodi:role="line"><tspan
+   id="tspan74000-8-2-0"
+   style="font-weight:bold;-inkscape-font-specification:'FreeSans Bold'">1 - </tspan>Se copia el Bootloader en la posición <tspan
+   id="tspan74077-3-1-5"
+   style="font-weight:bold;-inkscape-font-specification:'FreeSans Bold'">0x1000 </tspan>de la memoria</tspan></text>
+      <g
+         transform="matrix(0.54496231,0,0,0.54496231,-468.25097,399.17182)"
+         id="g48362">
+        <circle
+           r="35.586872"
+           cy="241.52364"
+           cx="165.37428"
+           transform="matrix(0.75000006,0,0,0.75000006,963.71071,132.18925)"
+           id="path10026-3-4"
+           style="display:inline;fill:#fdca01;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+           x="1074.1157"
+           y="327.58881"
+           id="text9702-2-4-0-6"><tspan
+             sodipodi:role="line"
+             x="1074.1157"
+             y="327.58881"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.1656px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:start;writing-mode:lr-tb;text-anchor:start"
+             id="tspan9857-9-5-8">1</tspan></text>
+      </g>
+    </g>
+  </g>
+  <g
+     transform="translate(-9.8847862e-7,-0.2275379)"
+     style="display:inline"
+     inkscape:label="Layer 4"
+     id="layer4"
+     inkscape:groupmode="layer">
+    <g
+       ns1:effectIn="name:appear;order:2;length:800"
+       id="g48392"
+       style="display:inline"
+       transform="matrix(0.26458333,0,0,0.26458333,-28.588139,-46.909969)">
+      <text
+         id="text9702-0-5-9-6-4-2-8"
+         y="606.63184"
+         x="118.13904"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.9433px;line-height:125%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;writing-mode:lr-tb;text-anchor:start"
+           id="tspan9712-7-4-8-5-3-3-0"
+           y="606.63184"
+           x="118.13904"
+           sodipodi:role="line"><tspan
+   id="tspan74002-6-5-1"
+   style="font-weight:bold;-inkscape-font-specification:'FreeSans Bold'">2 - </tspan>Se busca el archivo <tspan
+   id="tspan74083-6-4-8"
+   style="font-weight:bold;-inkscape-font-specification:'FreeSans Bold'">KERNEL.BIN</tspan> en el diskette</tspan></text>
+      <g
+         transform="matrix(0.54496231,0,0,0.54496231,-467.71423,351.8666)"
+         id="g48367">
+        <circle
+           r="35.586872"
+           cy="241.52364"
+           cx="165.37428"
+           transform="matrix(0.75000006,0,0,0.75000006,963.71071,274.07546)"
+           id="path10026-3-5-0"
+           style="display:inline;fill:#fdca01;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+           x="1074.1157"
+           y="469.47504"
+           id="text9702-2-4-1-1"><tspan
+             sodipodi:role="line"
+             x="1074.1157"
+             y="469.47504"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.1656px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:start;writing-mode:lr-tb;text-anchor:start"
+             id="tspan9857-9-7-3">2</tspan></text>
+      </g>
+    </g>
+    <g
+       ns1:effectIn="name:appear;order:2;length:800"
+       id="g50249"
+       style="display:inline"
+       transform="matrix(0.26458333,0,0,0.26458333,-28.588139,-37.288269)">
+      <g
+         transform="matrix(0.54496231,0,0,0.54496231,158.63286,71.868421)"
+         id="g48367-1">
+        <circle
+           r="35.586872"
+           cy="241.52364"
+           cx="165.37428"
+           transform="matrix(0.75000006,0,0,0.75000006,963.71071,274.07546)"
+           id="path10026-3-5-0-7"
+           style="display:inline;fill:#fdca01;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+           x="1074.1157"
+           y="469.47504"
+           id="text9702-2-4-1-1-9"><tspan
+             sodipodi:role="line"
+             x="1074.1157"
+             y="469.47504"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.1656px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:start;writing-mode:lr-tb;text-anchor:start"
+             id="tspan9857-9-7-3-0">2</tspan></text>
+      </g>
+      <rect
+         y="340.52286"
+         x="666.01624"
+         height="50.098236"
+         width="170.78944"
+         id="rect48586"
+         style="fill:#000000;fill-opacity:1;stroke:none" />
+      <text
+         transform="scale(0.77163339,1.2959522)"
+         id="text48588"
+         y="294.48334"
+         x="872.56024"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#eeeeee;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           style="font-size:34.0076px;line-height:1.25"
+           y="294.48334"
+           x="872.56024"
+           id="tspan48590"
+           sodipodi:role="line">KERNEL.BIN</tspan></text>
+    </g>
+  </g>
+  <g
+     transform="translate(-9.8847862e-7,-0.2275379)"
+     style="display:inline"
+     inkscape:label="Layer 5"
+     id="layer5"
+     inkscape:groupmode="layer">
+    <g
+       id="g48402"
+       ns1:effectIn="name:appear;order:3;length:800"
+       style="display:inline"
+       transform="matrix(0.26458333,0,0,0.26458333,-28.588139,-46.909969)">
+      <text
+         id="text9702-0-5-9-6-4-2-1"
+         y="636.54144"
+         x="118.16299"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.9433px;line-height:125%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;writing-mode:lr-tb;text-anchor:start"
+           id="tspan9712-7-4-8-5-3-3-2"
+           y="636.54144"
+           x="118.16299"
+           sodipodi:role="line"><tspan
+   id="tspan74004-5-5-1"
+   style="font-weight:bold;-inkscape-font-specification:'FreeSans Bold'">3 - </tspan>Se copia ese archivo en la posición <tspan
+   id="tspan74079-7-1-0"
+   style="font-weight:bold;-inkscape-font-specification:'FreeSans Bold'">0x1200</tspan> de la memoria</tspan></text>
+      <g
+         transform="matrix(0.54496231,0,0,0.54496231,-467.71423,312.54692)"
+         id="g48372">
+        <circle
+           r="35.586872"
+           cy="241.52364"
+           cx="165.37428"
+           transform="matrix(0.75000006,0,0,0.75000006,963.71071,401.30824)"
+           id="path10026-3-53-8"
+           style="display:inline;fill:#fdca01;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+           x="1074.1157"
+           y="596.70782"
+           id="text9702-2-4-8-7"><tspan
+             sodipodi:role="line"
+             x="1074.1157"
+             y="596.70782"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.1656px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:start;writing-mode:lr-tb;text-anchor:start"
+             id="tspan9857-9-3-5">3</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g50235"
+       ns1:effectIn="name:appear;order:3;length:800"
+       style="display:inline"
+       transform="matrix(0.26458333,0,0,0.26458333,-28.588139,-37.288269)">
+      <g
+         id="g49618">
+        <g
+           id="g48004">
+          <text
+             id="text47903"
+             y="244.46063"
+             x="139.86588"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+             xml:space="preserve"><tspan
+               style="font-size:23.9325px;line-height:1.25"
+               y="244.46063"
+               x="139.86588"
+               id="tspan47905"
+               sodipodi:role="line">0x1200</tspan></text>
+          <rect
+             ry="0"
+             rx="0"
+             y="225.2691"
+             x="235.30991"
+             height="246.69586"
+             width="86.533302"
+             id="rect47570-0-2"
+             style="display:inline;fill:#000000;stroke:none" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#eeeeee;fill-opacity:1;stroke:none"
+           x="-543.67816"
+           y="226.76903"
+           id="text48588-7"
+           transform="matrix(0,-0.77163339,1.2959522,0,0,0)"><tspan
+             style="font-size:34.0076px;line-height:1.25"
+             sodipodi:role="line"
+             id="tspan48590-6"
+             x="-543.67816"
+             y="226.76903">KERNEL.BIN</tspan></text>
+      </g>
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path49630"
+         d="m 648.24082,359.62346 c 0,0 -171.21682,-7.65603 -303.62568,-10.6269"
+         style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow2Lend)" />
+      <g
+         id="g48372-3"
+         transform="matrix(0.54496231,0,0,0.54496231,-90.277588,37.655248)"
+         style="display:inline">
+        <circle
+           r="35.586872"
+           cy="241.52364"
+           cx="165.37428"
+           style="display:inline;fill:#fdca01;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path10026-3-53-8-4"
+           transform="matrix(0.75000006,0,0,0.75000006,963.71071,401.30824)" />
+        <text
+           id="text9702-2-4-8-7-7"
+           y="596.70782"
+           x="1074.1157"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             id="tspan9857-9-3-5-6"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.1656px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:start;writing-mode:lr-tb;text-anchor:start"
+             y="596.70782"
+             x="1074.1157"
+             sodipodi:role="line">3</tspan></text>
+      </g>
+    </g>
+  </g>
+  <g
+     transform="translate(-9.8847862e-7,-0.2275379)"
+     style="display:inline"
+     inkscape:label="Layer 6"
+     id="layer6"
+     inkscape:groupmode="layer">
+    <g
+       ns1:effectIn="name:appear;order:4;length:800"
+       id="g48412"
+       style="display:inline"
+       transform="matrix(0.26458333,0,0,0.26458333,-28.588139,-46.909969)">
+      <text
+         id="text9702-0-5-9-6-4-2-4"
+         y="666.45105"
+         x="118.2827"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.9433px;line-height:125%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;writing-mode:lr-tb;text-anchor:start"
+           id="tspan9712-7-4-8-5-3-3-55"
+           y="666.45105"
+           x="118.2827"
+           sodipodi:role="line"><tspan
+   id="tspan74006-5-0-9"
+   style="font-weight:bold;-inkscape-font-specification:'FreeSans Bold'">4 - </tspan>Se salta y se ejecuta la instrucción en la posición <tspan
+   id="tspan74081-28-8-8"
+   style="font-weight:bold;-inkscape-font-specification:'FreeSans Bold'">0x1200</tspan> de la memoria</tspan></text>
+      <g
+         transform="matrix(0.54496231,0,0,0.54496231,-467.71423,261.81934)"
+         id="g48377">
+        <circle
+           r="35.586872"
+           cy="241.52364"
+           cx="165.37428"
+           transform="matrix(0.75000006,0,0,0.75000006,963.71071,549.47444)"
+           id="path10026-3-9-6"
+           style="display:inline;fill:#fdca01;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+           x="1074.1157"
+           y="744.87402"
+           id="text9702-2-4-7-64"><tspan
+             sodipodi:role="line"
+             x="1074.1157"
+             y="744.87402"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.1656px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:start;writing-mode:lr-tb;text-anchor:start"
+             id="tspan9857-9-2-4">4</tspan></text>
+      </g>
+    </g>
+    <g
+       ns1:effectIn="name:appear;order:4;length:800"
+       id="g49611"
+       style="display:inline"
+       transform="matrix(0.26458333,0,0,0.26458333,-28.588139,-37.288269)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path48613"
+         d="m 326.58736,224.32027 h 44.02572"
+         style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart-9)" />
+      <g
+         transform="matrix(0.54496231,0,0,0.54496231,-210.99543,-173.02793)"
+         id="g48377-7">
+        <circle
+           r="35.586872"
+           cy="241.52364"
+           cx="165.37428"
+           transform="matrix(0.75000006,0,0,0.75000006,963.71071,549.47444)"
+           id="path10026-3-9-6-6"
+           style="display:inline;fill:#fdca01;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none"
+           x="1074.1157"
+           y="744.87402"
+           id="text9702-2-4-7-64-3"><tspan
+             sodipodi:role="line"
+             x="1074.1157"
+             y="744.87402"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.1656px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:start;writing-mode:lr-tb;text-anchor:start"
+             id="tspan9857-9-2-4-1">4</tspan></text>
+      </g>
+    </g>
+  </g>
+  <g
+     transform="translate(-9.8847862e-7,-0.2275379)"
+     style="display:inline"
+     inkscape:label="Layer 7"
+     id="layer7"
+     inkscape:groupmode="layer">
+    <g
+       transform="translate(434.24369,306.99204)"
+       id="g8369"
+       style="display:inline">
+      <rect
+         ry="0"
+         y="-222.92165"
+         x="-247.45828"
+         height="26.739325"
+         width="74.377655"
+         id="rect73887-0-1"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.515164;stroke-miterlimit:4;stroke-dasharray:none" />
+      <text
+         id="text9702-0-5-9-6"
+         y="-215.55301"
+         x="-210.76805"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:center;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#f9f06b;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.33499px;line-height:125%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#f9f06b;stroke-width:0.264583"
+           id="tspan9712-7-4-8-5"
+           y="-215.55301"
+           x="-210.76805"
+           sodipodi:role="line">Ustedes deben crear un</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.33499px;line-height:125%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#f9f06b;stroke-width:0.264583"
+           y="-207.63428"
+           x="-210.76805"
+           sodipodi:role="line"
+           id="tspan933">archivo KERNEL.BIN</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.33499px;line-height:125%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#f9f06b;stroke-width:0.264583"
+           y="-199.71553"
+           x="-210.76805"
+           sodipodi:role="line"
+           id="tspan931">y guardarlo en el diskette</tspan></text>
+    </g>
+    <path
+       style="display:inline;fill:#000000;stroke:#000000;stroke-width:0.212521px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 225.22852,90.9157 c 0,-11.446949 -7.87251,-27.209556 -24.21268,-29.399234 v 1.963458 l -4.57413,-3.926917 4.57413,-3.926918 v 1.963459 c 0,0 24.21268,1.440322 24.21268,33.326152 z"
+       id="path937"
+       sodipodi:nodetypes="ccccccc" />
+  </g>
+  <g
+     transform="translate(-9.8847862e-7,-0.2275379)"
+     inkscape:label="Layer 8"
+     id="layer8"
+     inkscape:groupmode="layer"
+     style="display:inline" />
+  <g
+     transform="translate(-9.8847862e-7,-0.2275379)"
+     inkscape:label="Layer 9"
+     id="layer9"
+     inkscape:groupmode="layer"
+     style="display:inline" />
+  <g
+     transform="translate(-9.8847862e-7,-0.2275379)"
+     inkscape:label="Layer 10"
+     id="layer10"
+     inkscape:groupmode="layer"
+     style="display:inline" />
+</svg>
