@@ -3,27 +3,27 @@ Clases dictadas para la materia Organización del Computador II (Orga2) en la Fa
 
 ## Programación con instrucciones de enteros
 
-- A01_Preliminares
-- A02_Hola_mundo_y_gdb
-- A03_Pila_y_Convencion_C
-- A04_Punteros_Vectores_y_Matrices
-- A05_Memoria_Dinamica
-- A06_Estructuras_Recursivas_listas_y_arboles
+- A01: Preliminares
+- A02: Hola Mundo y GDB
+- A03: Pila y Convención C
+- A04: Punteros, Vectores y Matrices
+- A05: Memoria Dinámica
+- A06: Estructuras Recursivas, listas y arboles
 
 ## Programación con instrucciones multimedia
 
-- B01_SIMD_Saturacion_Empaquetado_Extension_Mascaras
-- B02_SIMD_Conversiones_Shuffle_Blend
-- B03_Experimentacion_muestreo_y_analisis
+- B01: SIMD Saturación, Empaquetado, Extensión y Mascaras
+- B02: SIMD Conversiones, Shuffle y Blend
+- B03: Experimentación, muestreo y análisis
 
 ## Programación de Sistemas Operativos
 
-- C01_Introduccion_Bochs
-- C02_Modo_Protegido
-- C03_Interrupciones_basicas
-- C04_Interrupciones_externas
-- C05_Paginacion_IdentityMapping
-- C06_Conmutacion_basica_de_tareas
-- C07_Paginacion_MMU
-- C08_Scheduler_de_tareas
-- C09_Proteccion
+- C01: Introducción Bochs
+- C02: Modo Protegido
+- C03: Interrupciones básicas
+- C04: Interrupciones externas
+- C05: Paginación Identity Mapping
+- C06: Conmutación básica de tareas
+- C07: Paginación MMU
+- C08: Scheduler de tareas
+- C09: Protección
