@@ -1,7 +1,7 @@
 # Orga2Course
 Clases dictadas para la materia Organización del Computador II (Orga2) en la Facultad de Ciencias Exactas y Naturales (FCEN) de la Universidad de Buenos Aires (UBA)
 
-## Programación con instrucciones de enteros
+## Programación con Instrucciones de Enteros
 
 - A01: Preliminares
 - A02: Hola Mundo y GDB
@@ -10,7 +10,7 @@ Clases dictadas para la materia Organización del Computador II (Orga2) en la Fa
 - A05: Memoria Dinámica
 - A06: Estructuras Recursivas, listas y arboles
 
-## Programación con instrucciones multimedia
+## Programación con Instrucciones Multimedia
 
 - B01: SIMD Saturación, Empaquetado, Extensión y Mascaras
 - B02: SIMD Conversiones, Shuffle y Blend
