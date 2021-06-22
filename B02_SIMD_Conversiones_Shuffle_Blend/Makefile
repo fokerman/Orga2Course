@@ -1,4 +1,4 @@
-DOC = A06_Estructuras_Recursivas_listas_y_arboles
+DOC = B02_SIMD_Conversiones_Shuffle_Blend
 TEX = pdflatex -shell-escape -interaction=nonstopmode -file-line-error
 
 .PHONY: all clean remove
