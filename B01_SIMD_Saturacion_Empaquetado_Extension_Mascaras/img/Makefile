@@ -1,10 +1,8 @@
 # EL MAKEFILE DE SVG QUE MAKEFILEA A TODOS LOS MAKEFILES DE SVG QUE EXISTAN!
-# Este makefile esta preparado para la version 0.92.4 de inkscape. Si usas una
-# version mas nueva o mas vieja los nombres de los comandos de consola cambian
 # Todos los svg seran convertidos a pdf, si el svg contiene capas, estas seran
 # convertidas en archivos pdf distintos, indicadas por el id de la capa.
-# Ademas, si hay archivos dentro de una carpeta especial denominada RECURSOS
-# estos no seran convertidos a svg.
+# Ademas, cualquer archivo tal que su path contenga la string RECURSOS no
+# sera convertido a pdf.
 
 SOURCES := $(shell find `pwd` -name '*.svg' | grep -v RECURSOS)
 OUTPUT := $(SOURCES:%.svg=%.pdf)
@@ -32,29 +30,28 @@ ifeq ($(inkscapeVersion),0.92.5)
 		done ;\
 		cp $$(pwd)/$$(basename $< .svg)-layer1.pdf $$(pwd)/$$(basename $< .svg).pdf ;\
 	fi
+endif
+ifneq ($(filter $(inkscapeVersion), 1.1 1.0.1 1.0.2 1.1.1),)
+	@if [ $$(inkscape --query-all $< | grep layer | wc -l ) = 1 ] ;\
+	then \
+	echo "(1) $@" ;\
+		inkscape $< --export-plain-svg --export-filename=$$(pwd)/$$(basename $< .svg)-plain.svg ;\
+		inkscape $$(pwd)/$$(basename $< .svg)-plain.svg --export-filename=$$(pwd)/$$(basename $< .svg).pdf ;\
+		rm $$(pwd)/$$(basename $< .svg)-plain.svg ;\
+	else \
+	echo "(n) $@" ;\
+		for i in $$(inkscape --query-all $< | grep layer | awk -F, '{print $$1}') ;\
+		do \
+		inkscape $< -jC -i $$i --export-plain-svg --export-filename=$$(pwd)/$$(basename $< .svg)-$$i.svg ;\
+		inkscape $$(pwd)/$$(basename $< .svg)-$$i.svg --export-filename=$$(pwd)/$$(basename $< .svg)-$$i.pdf ;\
+		rm $$(pwd)/$$(basename $< .svg)-$$i.svg ;\
+		done ;\
+		cp $$(pwd)/$$(basename $< .svg)-layer1.pdf $$(pwd)/$$(basename $< .svg).pdf ;\
+	fi
 else
 		echo "Inkscape version does not supported"
+		echo $(inkscapeVersion)
 endif
 	
 clean:
 	rm -f $(RMOUTPUT)
-
-	
-	
-# mkdir -p pdf
-# 
-# for i in $(ls *.svg -1)
-# do
-#     inkscape --file=$i --export-area-page --without-gui --export-pdf=pdf/$(basename $i .svg).pdf
-# done
-
-# SOURCES := $(shell find . -name '*.svg' | grep -v recursos)
-# OUTPUT := $(SOURCES:%.svg=%.pdf)
-# all: $(OUTPUT)
-# 	echo $(OUTPUT)
-# 	echo $(SOURCES)
-# %.pdf: %.svg
-# 	inkscape $< --export-area-page --without-gui --export-file=$@
-# 	
-# clean:
-# 	rm -f $(OUTPUT)

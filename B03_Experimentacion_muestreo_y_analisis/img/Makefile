@@ -1,10 +1,8 @@
 # EL MAKEFILE DE SVG QUE MAKEFILEA A TODOS LOS MAKEFILES DE SVG QUE EXISTAN!
-# Este makefile esta preparado para la version 0.92.4 de inkscape. Si usas una
-# version mas nueva o mas vieja los nombres de los comandos de consola cambian
 # Todos los svg seran convertidos a pdf, si el svg contiene capas, estas seran
 # convertidas en archivos pdf distintos, indicadas por el id de la capa.
-# Ademas, si hay archivos dentro de una carpeta especial denominada RECURSOS
-# estos no seran convertidos a svg.
+# Ademas, cualquer archivo tal que su path contenga la string RECURSOS no
+# sera convertido a pdf.
 
 SOURCES := $(shell find `pwd` -name '*.svg' | grep -v RECURSOS)
 OUTPUT := $(SOURCES:%.svg=%.pdf)
@@ -36,7 +34,7 @@ ifeq ($(inkscapeVersion),0.92.5)
 		cp $$(pwd)/$$(basename $< .svg)-layer1.pdf $$(pwd)/$$(basename $< .svg).pdf ;\
 	fi
 endif
-ifeq ($(inkscapeVersion),1.0.1)
+ifneq ($(filter $(inkscapeVersion), 1.1 1.0.1 1.0.2 1.1.1),)
 	@if [ $$(inkscape --query-all $< | grep layer | wc -l ) = 1 ] ;\
 	then \
 	echo "(1) $@" ;\
@@ -55,6 +53,7 @@ ifeq ($(inkscapeVersion),1.0.1)
 	fi
 else
 		echo "Inkscape version does not supported"
+		echo $(inkscapeVersion)
 endif
 	
 clean:

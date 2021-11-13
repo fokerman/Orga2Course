@@ -1,18 +1,30 @@
-DOC = C06_Conmutacion_basica_de_tareas
+.PHONY: all clean cleanall
+
+SOURCES := $(shell find `pwd` -name '*.tex')
+OUTPUT := $(SOURCES:%.tex=%.pdf)
+NAME := $(shell pwd | grep -o '[^/]*$$')
+
 TEX = pdflatex -shell-escape -interaction=nonstopmode -file-line-error
 
-.PHONY: all clean remove
+all: $(OUTPUT)
 
-all : $(DOC).pdf
-
-$(DOC).pdf : $(DOC).tex
-	make -C img/
-	$(TEX) $(DOC).tex
+%.pdf: %.tex
+ifneq (,$(wildcard ./img/Makefile))
+	make -C img
+endif
+	cat $< > $(NAME).tex
+	pdflatex $(NAME).tex #> /dev/null
+	pdflatex $(NAME).tex #> /dev/null
+	rm $(NAME).tex
+	sed 's/\[aspectratio=169]/\[aspectratio=169, handout\]/g' $< > $(NAME)_handout.tex
+	pdflatex $(NAME)_handout.tex #> /dev/null
+	pdflatex $(NAME)_handout.tex #> /dev/null
+	rm $(NAME)_handout.tex
+	rm -f *.aux *.log *.nav *.out *.snm *.toc *.vrb *.synctex.gz
 
 clean:
-	rm -f *.aux *.log *.nav *.out *.toc *.vrb *.snm *.synctex.gz
+	rm -f *.aux *.log *.nav *.out *.snm *.toc *.vrb *.synctex.gz
 
-remove:
-	make clean
-	make -C img/ clean
-	rm -f $(DOC).pdf
+cleanall:
+	rm -f $(OUTPUT) $(NAME)_handout.pdf $(NAME).pdf
+	rm -f *.aux *.log *.nav *.out *.snm *.toc *.vrb *.synctex.gz
