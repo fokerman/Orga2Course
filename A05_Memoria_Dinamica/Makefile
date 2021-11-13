@@ -26,5 +26,8 @@ clean:
 	rm -f *.aux *.log *.nav *.out *.snm *.toc *.vrb *.synctex.gz
 
 cleanall:
+ifneq (,$(wildcard ./img/Makefile))
+	make -C img clean
+endif
 	rm -f $(OUTPUT) $(NAME)_handout.pdf $(NAME).pdf
 	rm -f *.aux *.log *.nav *.out *.snm *.toc *.vrb *.synctex.gz
