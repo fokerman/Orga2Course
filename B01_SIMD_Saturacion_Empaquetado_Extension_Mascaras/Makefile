@@ -1,4 +1,4 @@
-DOC = A06_Estructuras_Recursivas_listas_y_arboles
+DOC = B01_SIMD_Saturacion_Empaquetado_Extension_Mascaras
 TEX = pdflatex -shell-escape -interaction=nonstopmode -file-line-error
 
 .PHONY: all clean remove
